@@ -1,0 +1,587 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Jost, Inter, sans-serif;
+    line-height: 1.5;
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    background: url("../img/bg.jpg") center/cover no-repeat;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.40);
+}
+
+.header-container {
+    display: flex;
+	position: relative;
+    width: 100%;
+    max-height: 1080px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 65px 15%;
+}
+
+.logo {
+	display: flex;
+	flex-wrap: wrap;
+    font-size: 64px;
+    font-weight: 600;
+}
+
+.navbar {
+    display: flex;
+	flex-wrap: wrap;
+    gap: 48px;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+	font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+	font-weight: 700;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 90px;
+	margin-top: 160px;
+	font-weight: 600;
+}
+
+.hero p {
+    font-size: 32px;
+    margin-bottom: 30px;
+	font-weight: 400
+}
+
+.start-button {
+    height: 76px;
+	width: 240px;
+    font-size: 24px;
+    background-color: #000000;
+	color: #FFFFFF;
+    border: none;
+	border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-button:hover {
+    background-color: white;
+	color: black;
+	box-shadow: 0 0 0 2px black;
+}
+
+
+/*Преимущества*/
+.benefits {
+    padding: 180px 80px;
+    text-align: center;
+    background-color: white;
+}
+
+.benefits h2 {
+    font-size: 64px;
+	font-weight: 500; 
+    margin-bottom: 80px;
+}
+
+.benefits-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.text h3 {
+	text-align: left;
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.text p {
+    font-size: 32px;
+    color: #000000;
+    text-align: left;
+	font-weight: 300;
+}
+
+.more-button {
+    margin-top: 50px;
+    height: 77px;
+	width: 267px;
+    font-size: 24px;
+    background-color: white;
+    border: none;
+	border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+	box-shadow: 0 0 0 2px black;
+}
+
+.more-button:hover {
+    background-color: black;
+	color: white;
+	box-shadow: 0 0 0 0px black;
+}
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2vw;  /* Используем vw вместо px для адаптации */
+    grid-row-gap: 4vh;     /* Используем vh для адаптации */
+    width: 90vw;           /* Установим ширину на 90% от ширины окна */
+    max-width: 1360px;     /* Максимальная ширина для больших экранов */
+}
+
+.div1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+    display: flex;         /* Включаем flex */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div3 {
+    grid-row-start: 2; /* Начинается со второй строки */
+    display: flex;
+    flex-direction: column;
+}
+
+.div4 {
+    grid-column-start: 1; /* Начинается с первого столбца */
+    grid-row-start: 3;  /* Начинается с третьей строки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div5 {
+    grid-row: span 2 / span 2; /* Занимает 2 столбца */
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div6 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40vw;           /* Динамическая ширина в зависимости от экрана */
+    max-width: 555px;      /* Ограничиваем ширину для больших экранов */
+}
+
+/* Адаптивные стили текста */
+.текст1, .текст2, .текст3 {
+    font-size: 1.2vw;     /* Шрифт зависит от ширины экрана */
+}
+
+/* Адаптивные стили картинок */
+.картинка1, .картинка2, .картинка3 {
+    width: 100%;          /* Картинки растягиваются на всю ширину контейнера */
+    height: auto;         /* Пропорциональное уменьшение высоты */
+}
+
+
+
+/*Наши проекты*/
+.projects {
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 64px;
+	font-weight: 500;
+}
+
+.projects-container {
+	margin-left: 150px;
+    margin-right: 150px;
+	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+	gap: 17%;;
+
+}
+
+.project {
+    width: 557px;
+	height: 555px;
+    text-align: left;
+    background-color: #fff;
+    padding-top: 80px;
+    border-radius: 8px;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 32px;
+}
+
+.project h3 {
+    font-size: 40px;
+	font-weight: 400;
+    margin: 10px 0;
+}
+
+.project p {
+	color: #828282;
+    font-size: 24px;
+	font-weight: 300;
+    margin: 8px 0;
+}
+
+.more-button3 {
+    margin-top: 130px;
+    height: 77px;
+	width: 267px;
+    font-size: 24px;
+    background-color: white;
+    border: none;
+	border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+	box-shadow: 0 0 0 2px black;
+}
+
+.more-button3:hover {
+    background-color: black;
+	color: white;
+	box-shadow: 0 0 0 0px black;
+}
+
+
+
+
+
+
+
+/*Этапы разработки*/
+.stages {
+    padding: 180px 20px 80px 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.stages h2 {
+    font-size: 64px;
+	font-weight: 500;
+}
+
+/*Контейнер для размещения этапов*/
+.stages-container {
+	display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+	gap: 10px;
+}
+
+.stage-content h3 {
+    font-size: 40px;
+    color: #000;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.stage-content {
+    text-align: left;
+}
+
+.stage-content h4 {
+    font-size: 40px;
+    font-weight: 400;
+    
+}
+
+.stage-content p {
+	font-size: 24px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.5;
+}
+
+.stage1 {
+    margin-left: 15%;
+    margin-top: 80px;
+}
+
+.stage2 {
+    margin-left: 30%; /* Смещение вправо */
+    margin-top: 35px;  /* Смещение вниз */
+	margin-right: 10%;
+}
+
+.stage3 {
+    margin-left: 45%; /* Большее смещение вправо */
+    margin-top: 35px;   /* Большее смещение вниз */
+}
+
+.stage4 {
+    margin-left: 60%;
+    margin-top: 35px;
+	margin-bottom: 100px;
+	margin-right: 10%;
+}
+
+
+
+
+
+/*Услуги*/
+.services {
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 64px;
+	font-weight: 500;
+    margin-bottom: 60px;
+}
+
+.services-container {
+	margin-left: 150px;
+    margin-right: 150px;
+	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+	gap: 250px;
+}
+
+.service {
+	font-size: 36px;
+	font-weight: 400;
+    background-color: #fff;
+    border-radius: 32px;
+
+}
+
+.service img {
+	width: 555px;
+	height: 690px;
+    border-radius: 32px;
+}
+
+.more-button2 {
+    margin-top: 50px;
+    height: 77px;
+	width: 209px;
+    font-size: 24px;
+    background-color: white;
+    border: none;
+	border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+	box-shadow: 0 0 0 2px black;
+}
+
+.more-button2:hover {
+    background-color: black;
+	color: white;
+	box-shadow: 0 0 0 0px black;
+}
+
+/*Контакты*/
+.contact {
+    padding: 180px 240px;
+    text-align: center;
+    background-color: white;
+}
+
+.contact h2 {
+    font-size: 64px;
+	font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 140px;
+}
+
+.contact-image {
+    max-width: 550px;
+    border-radius: 32px;
+}
+
+.contact-form {
+	padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form h5{
+	display: flex;
+	justify-content: flex-start;
+	padding-bottom: 30px;
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.contact-form input{
+	font-size: 16px;
+	font-weight: 500;
+    padding: 10px;
+	width: 660px;
+	height: 60px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.contact-form textarea {
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px;
+	width: 660px;
+	height: 300px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.contact-form button {
+    height: 70px;
+	width: 225px;
+    font-size: 24px;
+    background-color: #000000;
+	color: #FFFFFF;
+    border: none;
+	border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+	box-shadow: 0 0 0 2px black;
+}
+
+.contact-form button:hover {
+    background-color: white;
+	color: black;
+}
+
+/*Foote */
+.footer {
+    background-color: #E4E4E4;
+    color: black;
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/*Контейнер для двух колонок*/
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1350px;
+    margin-bottom: 20px;
+}
+
+/*Левая колонка*/
+.footer-left {
+    text-align: left;
+}
+
+.footer-title {
+    font-size: 24px;
+	font-weight: 400;
+    margin: 0;
+}
+
+.footer-subtitle {
+    margin-top: 90px;
+    font-size: 16px;
+	font-weight: 500;
+    color: #454545;
+}
+
+/*Правая колонка*/
+.footer-right {
+    text-align: right;
+}
+
+.footer-question {
+    font-size: 36px;
+	font-weight: 600;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.consultation-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 22px 50px;
+    font-size: 24px;
+	font-weight: 500;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.consultation-button:hover {
+    background-color: black;
+	color: white;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9em;
+    color: #454545;
+    margin-top: 20px;
+}
+

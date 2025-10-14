@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Jost, Inter, sans-serif;
+    line-height: 1.5;
+}
+
+.header {
+	margin-top: 3%;
+    display: grid;
+    grid-template-columns: 1fr auto; /*  означает, что столбцы будут заполнять всё доступное пространство */
+    align-items: center;
+    padding: 1rem 0rem 1rem 6rem;
+    background-color: #fff;
+	width: 85%;
+	justify-content: center;
+	margin-bottom: 70px;
+	gap: 3rem;
+}
+
+.logo {
+    font-size: 64px;
+    font-weight: 600;
+	margin-left: 21.5%;
+	max-width: 15%;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(5, auto); /*  задает пять колонок, размеры которых вычисляются автоматически в зависимости от свободного пространства */
+    gap: 3rem;
+	
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+	font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+	font-weight: 700;
+}
+
+.main-content {
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    row-gap: 2rem; /*  устанавливает вертикальный промежуток между строками сетки */
+    padding: 2rem;
+    max-width: 1250px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 64px;
+	font-weight: 500; 
+}
+
+/* Услуги */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*  создаются три столбца, каждый из которых занимает равные доли оставшегося пространства */
+    grid-template-rows: repeat(7, auto); /*  Создаёт 7 строк в сетке, высота каждой строки подстраивается под содержимое */
+    gap: 8px;
+}
+
+.service, .image-only {
+    display: grid;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.service img, .image-only img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Service content styling */
+.service-content {
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.service-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+	font-weight: 500;
+}
+
+.service-content p {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+	font-weight: 400;
+	color: #828282;
+}
+
+.service-content a {
+	font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Позиционирование элементов грида */
+.div1 {
+    grid-column: span 2 / span 2; /*  Задаёт элементу ширину в 2 столбца, элемент растягивается на указанное количество колонок */
+}
+
+.div1 img {
+	width: 75%;
+}
+
+.div2 {
+    grid-column-start: 3; /*  Устанавливает начальную позицию элемента по столбцам, начиная с третьего столбца. */
+}
+
+.div3 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.div4 {
+	margin-left: -20%;
+    grid-column-start: 3;
+    grid-row-start: 3;
+	width: 125%
+}
+
+.div5 {
+    grid-row: span 3 / span 3; /*  Устанавливает высоту элемента в 3 строки, начиная с текущей строки, в которой расположен элемент. */
+    grid-row-start: 4;
+	width: 155%
+}
+
+.image-only {
+	margin-left: 50%;
+}
+
+.div6 {
+    grid-row-start: 4;
+	width: 53%;
+	margin-bottom: -190px;
+}
+
+.div7 {
+    grid-column-start: 2;
+    grid-row-start: 5;
+	width: 53%;
+	margin-bottom: -190px;
+}
+
+.div8 {
+    grid-column-start: 2;
+    grid-row-start: 6;
+	width: 53%;
+}
+
+.div6 img{
+    border-radius: 32px;
+}
+
+.div7 img{
+    border-radius: 32px;
+}
+
+.div8 img{
+    border-radius: 32px;
+}
+
+
+.div9 {
+    grid-row-start: 7;
+	width: 80%;
+}
+
+.div10 {
+    grid-row-start: 7;
+	width: 80%;
+	margin-left: 23.5%;
+}
+
+
+.order-button {
+	margin-left: 70%;
+    padding: 1.3rem 2.8rem;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-self: center;
+	margin-bottom: 13%;
+}
+
+.order-button:hover {
+	background-color: white;
+	color: black;
+	box-shadow: 0 0 0 2px black;
+}
+
+
+/*Footer */
+.footer {
+    background-color: #E4E4E4;
+    color: black;
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/*Контейнер для двух колонок*/
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1350px;
+    margin-bottom: 20px;
+}
+
+/*Левая колонка*/
+.footer-left {
+    text-align: left;
+}
+
+.footer-title {
+    font-size: 24px;
+	font-weight: 400;
+    margin: 0;
+}
+
+.footer-subtitle {
+    margin-top: 90px;
+    font-size: 16px;
+	font-weight: 500;
+    color: #454545;
+}
+
+/*Правая колонка*/
+.footer-right {
+    text-align: right;
+}
+
+.footer-question {
+    font-size: 36px;
+	font-weight: 600;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.consultation-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 22px 50px;
+    font-size: 24px;
+	font-weight: 500;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.consultation-button:hover {
+    background-color: black;
+	color: white;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9em;
+    color: #454545;
+    margin-top: 20px;
+}
+
+
+/* Медиазапросы — это наборы правил, которые задают разные аспекты вёрстки в зависимости от размеров и свойств экрана браузера. */
+@media (max-width: 768px) {
+    .navbar {
+        grid-template-columns: 1fr; /* 1 колонка для узких экранов */
+        gap: 1rem; /* уменьшаем промежутки между элементами */
+    }
+}

@@ -6,6 +6,16 @@
     <title>Контакты</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Подключает стили Bootstrap для использования стандартных компонентов и классов. -->
     <link rel="stylesheet" href="../css/style4.css">
+
+<!-- Подключаем EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Инициализация EmailJS с вашим Public Key
+        (function() {
+            emailjs.init("Pdmr5bpLu_BeSImeF"); // Замените YOUR_PUBLIC_KEY на ваш ключ из EmailJS
+        })();
+    </script>
+	
 </head>
 
  <body>
@@ -39,21 +49,23 @@
             </div>
             <div class="col-md-6">
                 <h5>Есть вопросы?</h5>
-                <form>
-                    <div class="mb-3"> <!-- margin bottom 1rem или 16px-->
-                        <input type="text" class="form-control" id="name" placeholder="Ваше имя" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Email" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="phone" placeholder="Телефон" required>
-                    </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" id="message" rows="7" placeholder="Сообщение" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#successModal">Отправить</button> <!-- btn-dark — темная тема кнопки (черный фон с белым текстом). data-bs-toggle="modal" Атрибут Bootstrap, указывающий, что кнопка будет взаимодействовать с модальным окном. При нажатии будет вызвано соответствующее поведение. data-bs-target="#successModal" Указывает ID модального окна, которое нужно открыть. -->
-                </form>
+                <!-- Добавляем id для формы и обработчик события onsubmit -->
+                    <form id="contact-form" onsubmit="return sendEmail(this);">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Телефон" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" name="message" rows="7" placeholder="Сообщение" required></textarea>
+                        </div>
+                        <!-- Убираем data-bs-toggle и data-bs-target, так как модальное окно будет открываться через JavaScript -->
+                        <button type="submit" class="btn btn-dark">Отправить</button>
+                    </form>
             </div>
         </div>
 			</div>
@@ -112,6 +124,32 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	
+
+<script>
+        // Функция для отправки формы через EmailJS
+        function sendEmail(form) {
+            // Предотвращаем стандартную отправку формы
+            event.preventDefault();
+            
+            // Отправляем форму через EmailJS
+            emailjs.sendForm('service_4390nfu', 'template_paa5eqv', form)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Показываем модальное окно при успешной отправке
+                    var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    myModal.show();
+                    // Очищаем форму
+                    form.reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+                });
+            
+            // Возвращаем false, чтобы форма не отправлялась стандартным способом
+            return false;
+        }
+    </script>
+	 
 </body>
 </html>
+

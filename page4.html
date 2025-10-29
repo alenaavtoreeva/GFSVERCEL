@@ -126,14 +126,26 @@
 <script>
         // Функция для отправки формы через EmailJS
         function sendEmail(form) {
-            emailjs.sendForm('service_4390nfu', 'template_paa5eqv', templateParams).then(
-  (response) => {
-    console.log('SUCCESS!', response.status, response.text);
-  },
-  (error) => {
-    console.log('FAILED...', error);
-  },
-);
+            // Предотвращаем стандартную отправку формы
+            event.preventDefault();
+            
+            // Отправляем форму через EmailJS
+            emailjs.sendForm('service_4390nfu', 'template_paa5eqv', form)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Показываем модальное окно при успешной отправке
+                    var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    myModal.show();
+                    // Очищаем форму
+                    form.reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+                });
+            
+            // Возвращаем false, чтобы форма не отправлялась стандартным способом
+            return false;
+        }
     </script>
 	 
 </body>

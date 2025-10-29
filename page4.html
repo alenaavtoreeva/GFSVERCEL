@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-6">
                 <h5>Есть вопросы?</h5>
-                <form id="contact-form">
+                <form id="contact-form" onsubmit="sendForm(event)">
                     <div class="mb-3">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required>
                     </div>
@@ -122,33 +122,23 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// Ждем загрузки DOM
-document.addEventListener('DOMContentLoaded', function() {
-    // Находим форму по ID
-    const contactForm = document.getElementById('contact-form');
+function sendForm(event) {
+    event.preventDefault(); // ВСЕ РАВНО НУЖНА эта строка!
     
-    // Добавляем обработчик события отправки формы
-    contactForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем стандартную отправку
-        
-        // Отправляем форму через EmailJS
-        emailjs.sendForm('service_4390nfu', 'template_paa5eqv', this)
-            .then(function() {
-                // Показываем модальное окно при успешной отправке
-                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-                successModal.show();
-                // Очищаем форму
-                contactForm.reset();
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
-            });
-    });
-});
+    emailjs.sendForm('service_4390nfu', 'template_paa5eqv', event.target)
+        .then(() => {
+            new bootstrap.Modal(document.getElementById('successModal')).show();
+            event.target.reset();
+        })
+        .catch(error => {
+            alert('Ошибка отправки: ' + error);
+        });
+}
 </script>
 	 
 </body>
 </html>
+
 
 
 

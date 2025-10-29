@@ -47,23 +47,21 @@
             </div>
             <div class="col-md-6">
                 <h5>Есть вопросы?</h5>
-                <!-- Добавляем id для формы и обработчик события onsubmit -->
-                    <form id="contact-form" onsubmit="return sendEmail(this);">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Телефон" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" id="message" name="message" rows="7" placeholder="Сообщение" required></textarea>
-                        </div>
-                        <!-- Убираем data-bs-toggle и data-bs-target, так как модальное окно будет открываться через JavaScript -->
-                        <button type="submit" class="btn btn-dark">Отправить</button>
-                    </form>
+                <form id="contact-form">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Телефон" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="message" name="message" rows="7" placeholder="Сообщение" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Отправить</button>
+                </form>
             </div>
         </div>
 			</div>
@@ -124,27 +122,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// Функция для отправки формы через EmailJS
-async function sendEmail(event) {
-    event.preventDefault();
+// Ждем загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Находим форму по ID
+    const contactForm = document.getElementById('contact-form');
     
-    try {
-        const form = event.target;
-        await emailjs.sendForm('service_4390nfu', 'template_paa5eqv', form);
+    // Добавляем обработчик события отправки формы
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем стандартную отправку
         
-        // Показываем модальное окно при успешной отправке
-        new bootstrap.Modal(document.getElementById('successModal')).show();
-        form.reset();
-        
-    } catch (error) {
-        console.log('FAILED...', error);
-        alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
-    }
-}
+        // Отправляем форму через EmailJS
+        emailjs.sendForm('service_4390nfu', 'template_paa5eqv', this)
+            .then(function() {
+                // Показываем модальное окно при успешной отправке
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+                // Очищаем форму
+                contactForm.reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+            });
+    });
+});
 </script>
 	 
 </body>
 </html>
+
 
 
 
